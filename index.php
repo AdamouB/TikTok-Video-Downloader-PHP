@@ -248,6 +248,7 @@ function escape_sequence_decode($str)
             $dt = new DateTime("@$create_time");
             $create_time = $dt->format("d M Y H:i:s A");
             $videoKey = getKey($contentURL);
+            echo "Extracted video ID: " . $videoKey;
             $cleanVideo = "https://api2-16-h2.musical.ly/aweme/v1/play/?video_id=$videoKey&vr_type=0&is_play_url=1&source=PackSourceEnum_PUBLISH&media_type=4";
             $cleanVideo = getContent($cleanVideo, true);
             if (!file_exists("user_videos") && $store_locally) {
